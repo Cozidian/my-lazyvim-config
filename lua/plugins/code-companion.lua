@@ -6,8 +6,12 @@ return {
   },
   config = function()
     require("codecompanion").setup({
+      opts = {
+        -- You can add more options here
+        debug = true,
+      },
       adapters = {
-        llama3 = function()
+        qwen = function()
           return require("codecompanion.adapters").extend("ollama", {
             name = "qwen", -- Give this adapter a different name to differentiate it from the default ollama adapter
             schema = {
@@ -26,10 +30,10 @@ return {
       },
       strategies = {
         chat = {
-          adapter = "copilot",
+          adapter = "qwen",
         },
         inline = {
-          adapter = "copilot",
+          adapter = "qwen",
         },
         -- You can add more strategies and their configurations here
       },
